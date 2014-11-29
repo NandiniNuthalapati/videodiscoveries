@@ -44,7 +44,7 @@ h1, h2 {
 }
 
 /* ==========================================================================
-   Header
+   General
    ========================================================================== */
 header {
     border-bottom: 2px solid #d9e9d1;
@@ -53,15 +53,37 @@ header {
     padding: 0.5em 0;
 }
 
-/* ==========================================================================
-   Login
-   ========================================================================== */
+video {
+    width: 100%;
+    height: auto;
+    border: 2px solid #d9e9d1;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.description {
+    margin: 0;
+    padding-left: 3px;
+}
+
 .fullWidth {
     max-width: 1070px;
     padding: 0 40px;
     margin: 0 auto;
 }
 
+.container {
+    border: 2px solid #d9e9d1;
+    background: #f9f9f9;
+    box-sizing: border-box;
+    padding: 0.5em;
+    border-radius: 3px;
+}
+
+
+/* ==========================================================================
+   Login
+   ========================================================================== */
 .login,
 .loggedIn {
     display: none;
@@ -78,6 +100,14 @@ header {
 /* ==========================================================================
    Upload
    ========================================================================== */
+#fileForm {
+    float: left;
+}
+
+#fileForm fieldset {
+    padding: 0;
+}
+
 #title,
 #description {
     width: 23em;
@@ -91,11 +121,7 @@ header {
 #complete {
     display: none;
     text-align: center;
-}
-
-#progress img,
-#complete a {
-    margin-top: 5em;
+    margin: 0 auto;
 }
 
 #progress img {
@@ -107,19 +133,7 @@ header {
 
 #screenshotSelector {
     display: none;
-}
-
-#screenshotSelector video {
-    width: 23em;
-    height: auto;
-}
-
-.container {
-    border: 2px solid #d9e9d1;
-    background: #f9f9f9;
-    box-sizing: border-box;
-    padding: 0.5em;
-    border-radius: 3px;
+    float: right;
 }
 
 
@@ -143,19 +157,6 @@ header {
 .videoPlayer {
     position: relative;
     float: left;
-}
-
-.videoPlayer video {
-    width: 100%;
-    height: auto;
-    border: 2px solid #d9e9d1;
-    box-sizing: border-box;
-    border-radius: 3px;
-}
-
-.videoPlayer .description {
-    margin: 0;
-    padding-left: 3px;
 }
 
 .similarVideos {

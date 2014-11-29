@@ -2,20 +2,22 @@ $(function(){
 
   var progressBar = $("#progressBar");
   var progress = $("#progress");
-  var fileForm = document.getElementById("fileForm");
-  var screenshotSelector = $("#screenshotSelector video");
+  var fileForm = $("#fileForm");
+  var video = $("video");
+  var screenshotSelector = $("#screenshotSelector");
 
   function uploadVideo(getUrlResult){
     var screenShot = getScreenshot();
-    var form = new FormData( fileForm );
+    var form = new FormData( fileForm[0] );
     form.append("screenshot", dataURItoBlob(screenShot), "screenshot.jpg");
-    $("#select").hide();
+    screenshotSelector.hide();
+    fileForm.hide();
     progress.show().find("img")[0].src = screenShot;
     return Backend.uploadVideo( form, getUrlResult.uploadUrl, uploadProgress );
   }
 
   function getScreenshot(){
-    var videoElement = screenshotSelector[0];
+    var videoElement = video[0];
     var canvas = document.createElement('canvas');
     var context = canvas.getContext('2d');
     canvas.width = videoElement.videoWidth;
@@ -51,8 +53,8 @@ $(function(){
 
   $("#video").bind("change", function(){
     var videoFile = this.files[0];
-    screenshotSelector.attr( "src", URL.createObjectURL(videoFile) )
-    $("#screenshotSelector").show();
+    video.attr( "src", URL.createObjectURL(videoFile) )
+    screenshotSelector.show();
   });
 
   $(fileForm).submit( function(evt){
