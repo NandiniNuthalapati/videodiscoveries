@@ -1,0 +1,195 @@
+/* ==========================================================================
+   Additional Reset
+   ========================================================================== */
+html, body {
+    min-height: 100%;
+}
+
+/* ==========================================================================
+   Custom font video discoveries
+   ========================================================================== */
+@font-face {
+    font-family: 'quicksandregular';
+    src: url('../fonts/quicksand-regular-webfont.eot');
+    src: url('../fonts/quicksand-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/quicksand-regular-webfont.woff2') format('woff2'),
+         url('../fonts/quicksand-regular-webfont.woff') format('woff'),
+         url('../fonts/quicksand-regular-webfont.ttf') format('truetype'),
+         url('../fonts/quicksand-regular-webfont.svg#quicksandregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'quicksandlight';
+    src: url('../fonts/quicksand-light-webfont.eot');
+    src: url('../fonts/quicksand-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/quicksand-light-webfont.woff2') format('woff2'),
+         url('../fonts/quicksand-light-webfont.woff') format('woff'),
+         url('../fonts/quicksand-light-webfont.ttf') format('truetype'),
+         url('../fonts/quicksand-light-webfont.svg#quicksandlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    font-family: 'quicksandregular', Times, "Times New Roman", serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'quicksandlight', Times, "Times New Roman", serif;
+    letter-spacing: -0.05em;
+}
+
+/* ==========================================================================
+   Custom for video discoveries
+   ========================================================================== */
+body {
+    background: linear-gradient(#eeeded 0%, #ffffff 100%);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1em;
+}
+
+/* ==========================================================================
+   Login
+   ========================================================================== */
+header h1,
+.loggedIn {
+    max-width: 1070px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header h1 {
+    margin: 0.3em auto;
+}
+
+.login,
+.loggedIn {
+    display: none;
+}
+
+.login {
+    margin: 5em auto;
+    width: auto;
+    border-radius: 4px;
+    font-size: 200%;
+    padding: 1em;
+}
+
+.noContent {
+    display: none;
+    text-align: center;
+    margin: 5em auto;
+}
+
+
+/* ==========================================================================
+   Upload
+   ========================================================================== */
+#title,
+#description {
+    width: 23em;
+}
+
+#description {
+    height: 8em;
+}
+
+#progress,
+#complete {
+    display: none;
+    text-align: center;
+}
+
+#progress img,
+#complete a {
+    margin-top: 5em;
+}
+
+#progress img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 160px;
+}
+
+#screenshotSelector {
+    display: none;
+}
+
+#screenshotSelector video {
+    width: 23em;
+    height: auto;
+}
+
+
+/* ==========================================================================
+   View
+   ========================================================================== */
+.videoPlayer,
+.unwatchedVideos {
+    border: 1px solid #cccbcb;
+    background: #e9e8e8;
+    box-sizing: border-box;
+    padding: 0.3em;
+}
+
+.videoPlayer {
+    position: relative;
+}
+
+.videoPlayer video {
+    width: 100%;
+    height: auto;
+}
+
+.videoPlayer .description {
+    margin: 0;
+}
+
+.videoPreview {
+    position: relative;
+    margin: 0 0 0.3em 0;
+    cursor: pointer;
+}
+
+.videoPreview:last-child {
+    margin-bottom: 0;
+}
+
+.videoPreview img {
+    width: 100%;
+}
+
+.videoPlayer .title,
+.videoPreview .title {
+    position: absolute;
+    top: 0.3em;
+    left: 0.3em;
+    margin: 0;
+    color: #ccc;
+    text-shadow: #000 0 0 1em;
+}
+
+.videoPlayer .title {
+    top: 1em;
+    left: 1em;
+}
+
+.unwatchedCont {
+    float:right;
+}
+
+.similarVideosTitle{
+    margin: 0;
+}

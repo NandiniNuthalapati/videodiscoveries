@@ -1,0 +1,25 @@
+{% extends "templates/base.html" %}
+{% block scripts %}
+    <script src="/static/js/view.js"></script>
+{% endblock %}
+{% block content %}
+  <div class="loggedIn pure-g" id="view">
+
+    <div class="videoPlayer pure-u-18-24">
+      <video preload="none" controls></video>
+      <h3 class="title"></h3>
+      <p class="description"></p>
+    </div>
+
+    <div class="unwatchedCont pure-u-5-24">
+      <h3 class="similarVideosTitle">Similar Videos</h3>
+      <div class="unwatchedVideos"></div>
+    </div>
+
+  </div>
+
+  <div class="noContent">
+    <h3>No More Videos</h3>
+    <button class="reset pure-button pure-button-primary">Reset Videos</button>
+  </div>
+{% endblock %}

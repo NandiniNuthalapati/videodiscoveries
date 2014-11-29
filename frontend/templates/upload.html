@@ -1,0 +1,59 @@
+{% extends "templates/base.html" %}
+{% block scripts %}
+    <script src="/static/js/upload.js"></script>
+{% endblock %}
+{% block content %}
+  <div class="loggedIn" id="upload">
+
+    <div id="select">
+
+      <h2>Upload A Video</h2>
+      <p>NOTE: This demo is limited to 35 MB files and a total of 1000 files.</p>
+
+      <div class="pure-g">
+        <form enctype="multipart/form-data" id="fileForm" class="pure-form pure-form-aligned pure-u-3-5">
+          <fieldset>
+
+            <div class="pure-control-group">
+              <label for="file">Video:</label>
+              <input id="video" name="video" type="file" accept=".mp4" required></input>
+            </div>
+
+            <div class="pure-control-group">
+              <label for="title">Title:</label>
+              <input id="title" name="title" placeholder="Video title" type="text" required></input>
+            </div>
+
+            <div class="pure-control-group">
+              <label for="description">Description:</label>
+              <textarea id="description" name="description" placeholder="Video description" required></textarea>
+            </div>
+
+            <div class="pure-controls">
+              <button id="submit" class="pure-button pure-button-primary">Submit</button>
+            </div>
+
+          </fieldset>
+        </form>
+
+        <div id="screenshotSelector" class="pure-u-2-5">
+          <video controls></video>
+          <p class="description">Please stop the video on the frame you would like to use as a screenshot.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="progress">
+      <h2>Upload In Progress</h2>
+      <img/>
+      <progress id="progressBar"></progress>
+    </div>
+
+    <div id="complete">
+      <h2>Upload Complete</h2>
+      <a href="/upload/" class="pure-button pure-button-primary">Upload Another</a>
+      <a href="/" class="pure-button pure-button-primary">View Videos</a>
+    </div>
+  </div>
+{% endblock %}
