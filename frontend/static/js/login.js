@@ -1,13 +1,12 @@
 $(function(){
 
   function loggedIn(result){
-    console.log(result)
     $(".login").hide();
-    $(".loggedIn").css("display", "block");
+    $(".loggedIn").show();
   }
 
   function loginRequired(result){
-    $(".login").css("display", "block").click( function(){
+    $(".login").show().click( function(){
       Backend.authenticate().then( loggedIn );
     });
   }

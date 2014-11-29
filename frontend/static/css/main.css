@@ -3,6 +3,7 @@
    ========================================================================== */
 html, body {
     min-height: 100%;
+    color: #222;
 }
 
 /* ==========================================================================
@@ -37,40 +38,28 @@ html, button, input, select, textarea,
     font-family: 'quicksandregular', Times, "Times New Roman", serif;
 }
 
-h1, h2, h3, h4 {
+h1, h2 {
     font-family: 'quicksandlight', Times, "Times New Roman", serif;
     letter-spacing: -0.05em;
-}
-
-/* ==========================================================================
-   Custom for video discoveries
-   ========================================================================== */
-body {
-    background: linear-gradient(#eeeded 0%, #ffffff 100%);
 }
 
 /* ==========================================================================
    Header
    ========================================================================== */
 header {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 2px solid #d9e9d1;
     margin-bottom: 1em;
+    background: #f9f9f9;
+    padding: 0.5em 0;
 }
 
 /* ==========================================================================
    Login
    ========================================================================== */
-header h1,
-.loggedIn {
+.fullWidth {
     max-width: 1070px;
-    padding-left: 40px;
-    padding-right: 40px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-header h1 {
-    margin: 0.3em auto;
+    padding: 0 40px;
+    margin: 0 auto;
 }
 
 .login,
@@ -85,13 +74,6 @@ header h1 {
     font-size: 200%;
     padding: 1em;
 }
-
-.noContent {
-    display: none;
-    text-align: center;
-    margin: 5em auto;
-}
-
 
 /* ==========================================================================
    Upload
@@ -132,35 +114,69 @@ header h1 {
     height: auto;
 }
 
+.container {
+    border: 2px solid #d9e9d1;
+    background: #f9f9f9;
+    box-sizing: border-box;
+    padding: 0.5em;
+    border-radius: 3px;
+}
+
 
 /* ==========================================================================
    View
    ========================================================================== */
-.videoPlayer,
-.unwatchedVideos {
-    border: 1px solid #cccbcb;
-    background: #e9e8e8;
-    box-sizing: border-box;
-    padding: 0.3em;
+.noContent {
+    display: none;
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+.noContentCenter {
+    margin: 0 auto;
+}
+
+.noContentRight {
+   float: right;
 }
 
 .videoPlayer {
     position: relative;
+    float: left;
 }
 
 .videoPlayer video {
     width: 100%;
     height: auto;
+    border: 2px solid #d9e9d1;
+    box-sizing: border-box;
+    border-radius: 3px;
 }
 
 .videoPlayer .description {
     margin: 0;
+    padding-left: 3px;
+}
+
+.similarVideos {
+    float: right;
+}
+
+.similarVideosTitle {
+    margin: 0 0 0.5em 0;
 }
 
 .videoPreview {
     position: relative;
-    margin: 0 0 0.3em 0;
+    margin: 0 0 0.5em 0;
     cursor: pointer;
+    border: 2px solid #d9e9d1;
+    border-radius: 3px;
+}
+
+.videoPreview:hover {
+    border: 2px solid #81b6e8;
+    border-radius: 3px;
 }
 
 .videoPreview:last-child {
@@ -169,27 +185,20 @@ header h1 {
 
 .videoPreview img {
     width: 100%;
+    display: block;
 }
 
 .videoPlayer .title,
 .videoPreview .title {
     position: absolute;
-    top: 0.3em;
-    left: 0.3em;
+    top: 0.5em;
+    left: 0.5em;
     margin: 0;
-    color: #ccc;
-    text-shadow: #000 0 0 1em;
+    color: #eee;
+    text-shadow: #000 -0.02em -0.02em 0.3em
 }
 
 .videoPlayer .title {
-    top: 1em;
-    left: 1em;
-}
-
-.unwatchedCont {
-    float:right;
-}
-
-.similarVideosTitle{
-    margin: 0;
+    top: 1.5em;
+    left: 2em;
 }

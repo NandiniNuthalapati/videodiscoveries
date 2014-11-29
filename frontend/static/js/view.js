@@ -1,8 +1,12 @@
 $(function(){
 
   var unwatchedVideosCont = $(".unwatchedVideos");
-  var videoPlayer = $("video");
+  var videoTag = $("video");
+  var videoPlayerTitle = $(".videoPlayer .title");
   var videoPreviewPromise = Backend.getTemplate("videoPreview.mst");
+  var similarVideos = $(".similarVideos");
+  var noContent = $(".noContent");
+  var videoPlayer = $(".videoPlayer");
   var videoPreview;
 
   function displayVideoSuggestions( videoResponse ){
@@ -12,6 +16,7 @@ $(function(){
 
     if ( videos ) {
 
+      moreVideos();
       numVideos = videos.length;
 
       _.each( videos, function(video){
@@ -27,36 +32,41 @@ $(function(){
     }
 
     else  {
-      $(".noContent").clone( true ).appendTo( unwatchedVideosCont ).show();
+      noMoreVideos( true );
     }
   }
 
   function displayFirstVideo( videoResponse ){
     if ( videoResponse.items ) {
+      videoPlayer.show();
       moreVideos();
       queueVideo( videoResponse.items.shift() );
     }
     else {
+      videoPlayer.hide();
       noMoreVideos();
     }
   }
 
   function moreVideos(){
-    $(".loggedIn").show();
-    $(".noContent").hide();
+    similarVideos.show();
+    noContent.hide();
+    noContent.removeClass("noContentRight")
+    noContent.removeClass("noContentCenter")
   }
 
-  function noMoreVideos(){
-    $(".loggedIn").hide();
-    $(".noContent").show();
+  function noMoreVideos( onRight ){
+    similarVideos.hide();
+    noContent.show();
+    noContent.addClass( ( onRight ) ? "noContentRight" : "noContentCenter" );
   }
 
   function queueVideo( video ){
     Backend.getVideos( video.id ).done( displayVideoSuggestions );
-    $.data( videoPlayer[0], "video", video);
-    $(".videoPlayer .title").text( video.title );
+    $.data( videoTag[0], "video", video);
+    videoPlayerTitle.text( video.title );
     $(".videoPlayer .description").text( video.description );
-    videoPlayer.attr({
+    videoTag.attr({
       "poster": video.screenshotUri,
       "src": video.videoUri
     });
@@ -64,20 +74,25 @@ $(function(){
 
   function playVideo( video ){
     queueVideo( video );
-    videoPlayer[0].play();
+    videoTag[0].play();
   }
 
   $.when( videoPreviewPromise ).done( function( videoPreviewTemplate ){
     videoPreview = videoPreviewTemplate;
   });
 
-  videoPlayer.bind("ended", function(){
+  videoTag.bind("ended", function(){
     var video = $.data(this, "video");
     Backend.addViewedVideo( video.id );
+    videoPlayerTitle.show();
   });
 
-  videoPlayer.bind("playing", function(){
-    $(".videoPlayer .title").hide();
+  videoTag.bind("pause", function(){
+    videoPlayerTitle.show() 
+  });
+
+  videoTag.bind("playing", function(){
+    videoPlayerTitle.hide();
   });
 
   $(".reset").click( function(){

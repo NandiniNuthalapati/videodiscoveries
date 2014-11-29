@@ -18,10 +18,14 @@
     <body>
         {% block header %}
             <header>
-                <h1>Video Discoveries</h1>
+                <h1 class="fullWidth">Video Discoveries</h1>
             </header>
         {% endblock %}
-        {% block content %}{% endblock %}
+
+        <div class="loggedIn pure-g fullWidth">
+            {% block content %}{% endblock %}
+        </div>
+
         {% block login %}
             <button class="login pure-button pure-button-primary">Sign In</button>
         {% endblock %}
