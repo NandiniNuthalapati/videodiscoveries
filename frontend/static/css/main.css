@@ -117,11 +117,13 @@ video {
     height: 8em;
 }
 
+.noContent,
 #progress,
 #complete {
     display: none;
     text-align: center;
     margin: 0 auto;
+    padding-bottom: 2em;
 }
 
 #progress img {
@@ -140,16 +142,6 @@ video {
 /* ==========================================================================
    View
    ========================================================================== */
-.noContent {
-    display: none;
-    text-align: center;
-    padding-bottom: 2em;
-}
-
-.noContentCenter {
-    margin: 0 auto;
-}
-
 .noContentRight {
    float: right;
 }

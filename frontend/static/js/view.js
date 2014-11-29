@@ -52,13 +52,14 @@ $(function(){
     similarVideos.show();
     noContent.hide();
     noContent.removeClass("noContentRight")
-    noContent.removeClass("noContentCenter")
   }
 
   function noMoreVideos( onRight ){
     similarVideos.hide();
     noContent.show();
-    noContent.addClass( ( onRight ) ? "noContentRight" : "noContentCenter" );
+    if (onRight) {
+      noContent.addClass( "noContentRight" );
+    }
   }
 
   function queueVideo( video ){
